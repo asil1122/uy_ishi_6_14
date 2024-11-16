@@ -9,7 +9,7 @@ import { theme } from './config/mui-config.js'
 createRoot(document.getElementById('root')).render(
   <QueryClientProvider client={client}>
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
+      <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
         <App />
         <CssBaseline/>
       </BrowserRouter>

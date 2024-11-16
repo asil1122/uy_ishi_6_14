@@ -16,7 +16,7 @@ export const Form = () => {
       {isLoading ? (
         <div color='#fff'>Loading...</div>
       ) : (
-        <Stack zIndex={1} position={'absolute' } top={'80px'}  width={'100%'} boxShadow={"0px 0px 99px -9px rgba(161,137,161,1)"}>
+        <Stack zIndex={5} position={'absolute' } top={'80px'}  width={'100%'} boxShadow={"0px 0px 99px -9px rgba(161,137,161,1)"}>
           {data.map((item) => (
             <Stack
               direction={'row'}
