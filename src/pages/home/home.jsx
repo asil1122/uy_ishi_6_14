@@ -12,10 +12,13 @@ import { Banner } from '../../components/banner/banner';
 import { ProductCard } from '../../components/product-card';
 import './home.css'
 import akisya from '../../assets/aksiya-img.png'
+import { useGetBrand } from './service/query/useGetBrand';
+import { Products } from '../../components/products';
 
 
 export const Home = () => {
   const { data } = useGetCatalog()
+  const { data: brand } = useGetBrand()
   return (
     <Box>
       <Banner />
@@ -65,6 +68,34 @@ export const Home = () => {
           </Stack>
       </Container>
     </Box>
+    <Container maxWidth="xs" sx={{pt: '60px'}}>
+        <Stack direction={'row'} gap={'34px'} justifyContent={'center'} alignItems={'center'}>
+          <Products path={'phones'} name={'Смартфоны и планшеты'}/>
+          <Products path={'notebook'} name={'Ноутбуки, планшеты и компьютеры'} />
+          <Products path={'phones'} name={'Смартфоны и планшеты'}/>
+        </Stack>
+    </Container>
+    <Container>
+      <Box pt={'48px'} pb={'48px'}>
+        <ProductCard path={'phones'} name={'Смартфоны и планшеты'} />
+      </Box>
+      <Box pt={'48px'} pb={'48px'}>
+        <ProductCard path={'notebook'} name={'Ноутбуки, планшеты и компьютеры'}/>
+      </Box>
+    </Container>
+    <Container maxWidth="xs" sx={{pb: '114px'}}>
+      <Stack>
+        <Typography mb={'24px'} fontWeight={'600'} fontSize={'24px'} color='#333'>Популярные бренды</Typography>
+        <Stack direction={'row'}  flexWrap={'wrap'} gap={'16px'}>
+          {brand?.map((item)=> (
+            <Stack key={item.id}>
+              <img style={{width: '160px', height: '90px'}} src={item.img} alt="img" />
+            </Stack>
+          ))}
+        </Stack>
+      </Stack>
+    </Container>
     </Box>
   )
 }
+

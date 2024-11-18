@@ -18,7 +18,7 @@ export const ProductCard = ({ path, name }) => {
 
   return (
     <>
-      <Container maxWidth="lg">
+      <Container maxWidth="xs">
         <Stack direction={"row"} justifyContent={"space-between"} mb={"24px"}>
           <Typography
             variant="h5"
