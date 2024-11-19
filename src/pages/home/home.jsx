@@ -40,21 +40,6 @@ export const Home = () => {
       </Container>
       <Container maxWidth="xs" sx={{ pt: "16px", pb: "48px" ,position:"relative"}} >
         <ProductCard path={'phones'} name={'Смартфоны и планшеты'} />
-        {/* <Stack >
-          <Typography mb={'24px'} variant='h5'>Смартфоны и планшеты</Typography>
-          <Stack  direction={"row"} gap={"24px"}>
-          <Swiper modules={[Pagination,Scrollbar, Navigation ]}
-            slidesPerView={5}
-            navigation={true}
-            >
-            {phone?.map((item) => (
-              <SwiperSlide key={item.id}>
-                <ProductCard {...item} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </Stack>
-        </Stack> */}
       </Container>
     <Box sx={{bgcolor: '#00cbfe', pt: '16px', pb: '30px'}}>
       <Container maxWidth="xs">
