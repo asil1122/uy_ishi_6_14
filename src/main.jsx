@@ -5,14 +5,18 @@ import { client } from './config/query-client.js'
 import { BrowserRouter } from 'react-router-dom'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { theme } from './config/mui-config.js'
+import { Provider } from 'react-redux'
+import { store } from './redux/store.js'
 
 createRoot(document.getElementById('root')).render(
   <QueryClientProvider client={client}>
-    <ThemeProvider theme={theme}>
-      <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
-        <App />
-        <CssBaseline/>
-      </BrowserRouter>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
+          <App />
+          <CssBaseline/>
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>
   </QueryClientProvider>
 )

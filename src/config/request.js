@@ -1,5 +1,16 @@
 import axios from "axios";
+import { loadState } from "../utils/storage";
 
-export const request = axios.create({
-    baseURL: "http://localhost:3000",
+
+const request = axios.create({ baseURL: "http://localhost:3000" });
+
+request.interceptors.request.use((config) => {
+  const user = loadState("users");
+  console.log(user);
+  
+  config.headers.Authorization = `Bearer ${user}`;
+
+  return config;
 });
+
+export { request };
